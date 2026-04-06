@@ -1,0 +1,55 @@
+
+(defun hanoi(n)
+  ( transfer 'A 'B 'C n ))
+HANOI
+> 
+(defun print-move ( from to )
+  (princ "Move Disk From ")
+  (princ from)
+  (princ " To ")
+  (princ to)
+  (princ "\n")
+  nil)
+PRINT-MOVE
+> 
+
+(defun transfer ( from to via n )
+  (cond ((equal n 1) (print-move from to ))
+(t (transfer from via to (- n 1))
+   (print-move from to)
+   (transfer via to from (- n 1)))))
+TRANSFER
+> (hanoi 5)
+Move Disk From A To B
+Move Disk From A To C
+Move Disk From B To C
+Move Disk From A To B
+Move Disk From C To A
+Move Disk From C To B
+Move Disk From A To B
+Move Disk From A To C
+Move Disk From B To C
+Move Disk From B To A
+Move Disk From C To A
+Move Disk From B To C
+Move Disk From A To B
+Move Disk From A To C
+Move Disk From B To C
+Move Disk From A To B
+Move Disk From C To A
+Move Disk From C To B
+Move Disk From A To B
+Move Disk From C To A
+Move Disk From B To C
+Move Disk From B To A
+Move Disk From C To A
+Move Disk From C To B
+Move Disk From A To B
+Move Disk From A To C
+Move Disk From B To C
+Move Disk From A To B
+Move Disk From C To A
+Move Disk From C To B
+Move Disk From A To B
+NIL
+> (exit)

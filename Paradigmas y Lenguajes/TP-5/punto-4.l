@@ -1,0 +1,12 @@
+(defun P4 ()
+    (let ((L nil))
+        (format t "Ingrese lista: ")
+        (setq L (read))
+        (if (listp L)
+            (mapcar (lambda (x) (es-numero-si-no (numberp x))) L)
+            (pprint "Ingresar lista"))
+    ))
+
+(defun es-numero-si-no (x)
+  (if x 'SI 'NO)
+)

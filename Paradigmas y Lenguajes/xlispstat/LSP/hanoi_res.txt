@@ -1,0 +1,27 @@
+(hanoi 4)
+Move Disk From A To C
+Move Disk From A To B
+Move Disk From C To B
+Move Disk From A To C
+Move Disk From B To A
+Move Disk From B To C
+Move Disk From A To C
+Move Disk From A To B
+Move Disk From C To B
+Move Disk From C To A
+Move Disk From B To A
+Move Disk From C To B
+Move Disk From A To C
+Move Disk From A To B
+Move Disk From C To B
+NIL
+> (bye)
+error: unbound function - BYE
+> (by)
+error: unbound function - BY
+> exit
+error: unbound variable - EXIT
+> quit
+error: unbound variable - QUIT
+> (exit
+)

@@ -1,0 +1,1 @@
+; pasar lo del cuaderno

@@ -1,0 +1,17 @@
+(defun p5 ()
+    (let ((L nil) (exponente 0))
+        (print "Ingrese una lista no vacía: ")
+        (setq L (read))
+        (print "Ingrese un número entero: ")
+        (setq exponente (read))
+        
+        (if (and (consp L) (integerp exponente))
+                (mapcar (lambda (x)
+                            (cond
+                                ((numberp x) (list (expt x exponente)))
+                                (t nil))
+                        )
+                L)
+                (pprint "error")
+        )
+    ))
