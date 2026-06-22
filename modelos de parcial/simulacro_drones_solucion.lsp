@@ -144,7 +144,7 @@
 (defun max-alcance (flota)
     (cond
         ((null flota) NIL)                                                              ; Lista vacía → no hay nada que comparar, devuelvo NIL
-        ((null (cdr flota))              (extraer-id (car flota)))                      ; Solo queda UN elemento → ese es el ganador, extraigo su ID
+        ((endp (cdr flota))              (extraer-id (car flota)))                      ; Solo queda UN elemento → ese es el ganador, extraigo su ID
         ((not (consp (car flota)))       (max-alcance (cdr flota)))                     ; El PRIMER elemento no es una sublista válida (dato basura) → lo ignoro y avanzo
         ((not (consp (cadr flota)))      (max-alcance (cons (car flota) (cddr flota)))) ; El SEGUNDO elemento no es válido → lo salto, pero conservo el primero para comparar con el tercero
         ((>= (distancia-real (car flota)) (distancia-real (cadr flota))) ; El primero llega MÁS LEJOS que el segundo → el segundo pierde: lo elimino y repito
