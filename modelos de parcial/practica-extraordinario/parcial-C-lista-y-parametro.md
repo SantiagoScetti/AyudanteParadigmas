@@ -17,7 +17,7 @@
 Una aplicación de música registra en **una única lista** la **duración (en segundos)** de cada canción de una playlist. Por ejemplo:
 
 ```lisp
-(setq playlist '(200 45 90 30 180 240 90))
+(playlist '(200 45 90 30 180 240 90))
 ```
 
 Además, el operador ingresará un **número** (un *umbral* de duración en segundos) que se usará como parámetro en varias funciones.

@@ -20,13 +20,13 @@ Una empresa administra una **red de electrolineras** (estaciones de carga de aut
 Donde:
 * **`ID_ESTACION`** es el identificador de la estación.
 * **`DEMANDA`** es la potencia que se está consumiendo en este momento (en kW).
-* **`(TENSION_MIN  TENSION_ACTUAL  TENSION_MAX)`** es una **sublista** con el valor de tensión actual y los límites mínimo y máximo de operación segura. **Atención al orden: el valor actual está en el medio.**
+* **`(TENSION_MIN  TENSION_ACTUAL  TENSION_MAX)`** es una **sublista** con el valor de tensión actual y los límites mínimo y máximo de operación segura.
 * **`TARIFA`** es el precio de la energía (en $ por kWh).
 
-Datos de prueba sugeridos:
+Datos de prueba de ejemplo:
 
 ```lisp
-(setq red '(
+(red '(
     (E1 50 (200 220 240) 35)
     (E2 80 (210 205 230) 40)
     (E3 30 (200 250 240) 38)

@@ -27,8 +27,8 @@ Una hora se considera de **aire crítico** si se cumple **al menos una** de esta
 Datos de prueba sugeridos:
 
 ```lisp
-(setq lista-pm25 '(40 55 30 60 45 70 20))
-(setq lista-co   '(5  8  10 7  4  12 6))
+(lista-pm25 '(40 55 30 60 45 70 20))
+(lista-co   '(5  8  10 7  4  12 6))
 ```
 
 ---
