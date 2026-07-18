@@ -29,3 +29,4 @@
 ;; Expresión matemática: X * 10000
 ;; LISP: 
 (* X 10000)
+
