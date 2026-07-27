@@ -110,9 +110,9 @@
 ; Valida con listp y usa progn para ejecutar los tres reportes en la rama verdadera
 (defun informe-flota ()
     (let (flota)
-        (pprint "Ingrese la lista completa de la flota:")
+        (pprint "Ingrese la lista completa de la flota de drones:")
         (setq flota (read))
-        (if (listp flota)
+        (if (consp flota)
             (progn
                 (pprint (lista-estados flota))
                 (pprint (distancia-total flota))
