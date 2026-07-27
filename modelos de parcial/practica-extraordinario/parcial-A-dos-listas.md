@@ -62,7 +62,7 @@ El análisis de las listas deberá efectuarse mediante un **proceso recursivo**,
 
 ---
 
-**6.- DESAFÍO** *(puntos adicionales — 1 punto por ítem)*
+**6.- DESAFÍO** *(puntos adicionales)*
 
 **a)** La central quiere saber **en qué hora** la situación fue peor. Definiendo el *índice combinado* de una hora como `PM2.5 + CO`, desarrollar una función que reciba ambas listas y devuelva el **número de hora** (posición, empezando en 1) con el mayor índice combinado.
 

@@ -77,7 +77,7 @@ Desarrollar: *(3 p en total)*
 
 ---
 
-**6.- DESAFÍO** *(puntos adicionales — 1 punto por ítem)*
+**6.- DESAFÍO** *(puntos adicionales)*
 
 **a)** Identificar la estación más exigida: desarrollar una función que, dada la lista completa de la red, devuelva el **ID de la estación con mayor DEMANDA**.
 

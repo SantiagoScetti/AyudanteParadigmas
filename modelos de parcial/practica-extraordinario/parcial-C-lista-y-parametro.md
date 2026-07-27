@@ -55,7 +55,7 @@ Además, el operador ingresará un **número** (un *umbral* de duración en segu
 
 ---
 
-**7.- DESAFÍO** *(puntos adicionales — 1 punto por ítem)*
+**7.- DESAFÍO** *(puntos adicionales)*
 
 **a)** Desarrollar una función que devuelva la lista **sin duraciones repetidas** (si una duración aparece varias veces, debe quedar una sola).
 
