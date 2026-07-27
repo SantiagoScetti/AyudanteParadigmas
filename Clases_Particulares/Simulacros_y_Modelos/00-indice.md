@@ -8,9 +8,9 @@ Sin recursividad ni MAPCAR. Estilo "primer parcial" viejo: expresiones matemáti
 - [modelo-1-basico-tp1-a-tp3-tarea.md](modelo-1-basico-tp1-a-tp3-tarea.md) — Ferretería "Todo Tornillo"
 
 ## Nivel 2 — Recursividad y MAPCAR (TP4 y TP5)
-Un único ejercicio con puntos a-f, cada uno marcando explícitamente si se resuelve con recursión o con MAPCAR. Estilo "segundo parcial".
-- [modelo-2-recursion-y-mapcar-clase.md](modelo-2-recursion-y-mapcar-clase.md) — Taller mecánico
-- [modelo-2-recursion-y-mapcar-tarea.md](modelo-2-recursion-y-mapcar-tarea.md) — Biblioteca
+Un único ejercicio con puntos a-f más dos puntos difíciles (g y h). Sublistas de **3 elementos** y **ninguna consigna dice qué herramienta usar**: elegir entre recursión y MAPCAR es parte de la evaluación. Estilo "segundo parcial".
+- [modelo-2-recursion-y-mapcar-clase.md](modelo-2-recursion-y-mapcar-clase.md) — Taller mecánico (costo, tiempo, repuestos)
+- [modelo-2-recursion-y-mapcar-tarea.md](modelo-2-recursion-y-mapcar-tarea.md) — Biblioteca (días, estado, páginas)
 
 ## Nivel 3 — Integrador (todo junto, estilo 2026)
 Formato combinado actual: predicado, clasificador con `cond`, MAPCAR, recursividad y función principal con validación, todo en un mismo enunciado.
