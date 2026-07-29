@@ -8,19 +8,6 @@
 - Falta de validación de datos: considerar que no hay certeza de los datos ingresados, es decir pueden ser listas heterogéneas.
 - Anidación de IF/COND y diferentes combinaciones.
 
-## Puntaje
-
-| Ítem | Puntos |
-|---|---|
-| 1 | 1,5 |
-| 2 | 1,5 |
-| 3 | 1,5 |
-| 4 (intro + validación) | 0,5 |
-| 4a (MAPCAR) | 1,75 |
-| 4b (recursivo) | 1,75 |
-| 4c (predicado existencial) | 1,5 |
-
----
 
 Una empresa apícola monitorea sus colmenas mediante sensores. Cada colmena envía una lista con la siguiente estructura:
 
