@@ -16,5 +16,9 @@ Un único ejercicio con puntos a-f más dos puntos difíciles (g y h). Sublistas
 Formato combinado actual: predicado, clasificador con `cond`, MAPCAR, recursividad y función principal con validación, todo en un mismo enunciado.
 - [modelo-3-integrador-todo-junto.md](modelo-3-integrador-todo-junto.md) — Apiario de colmenas
 
+## Nivel 4 — Integrador con dos listas en paralelo
+Mismo formato que el Nivel 3, pero el sistema maneja **dos listas de igual longitud** que hay que recorrer a la par (posición 1 con posición 1). Los primeros 3 puntos trabajan sobre un registro suelto (TP1 a TP3) y los 4 siguientes sobre las listas, **sin decir qué herramienta usar**: 2 salen con recursividad y 2 con MAPCAR.
+- [modelo-4-dos-listas-en-paralelo.md](modelo-4-dos-listas-en-paralelo.md) — Flota de camiones (viajes + choferes)
+
 ## Carpeta `anterior/`
 Los 3 simulacros que ya existían (Integradora 1, Final A, Final B) — todos estilo "todo junto" (equivalente al Nivel 3). Se archivaron ahí para no perder ese trabajo; si querés reciclar alguno como Nivel 3 adicional, están completos con su solución.
