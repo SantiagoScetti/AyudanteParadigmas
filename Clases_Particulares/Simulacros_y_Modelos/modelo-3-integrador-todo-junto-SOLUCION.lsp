@@ -1,28 +1,28 @@
 ; MODELO 3 - INTEGRADOR (TODO JUNTO, ESTILO 2026) - SOLUCION DE REFERENCIA
 ; Apiario: (ID_COLMENA (TEMP_MIN TEMP_MAX) TEMP_ACTUAL PESO_ACTUAL CANTIDAD_ABEJAS)
 
-; --- Accesores (dejan el resto de las funciones mas legibles) ---
-(defun id (colmena) (car colmena))
-(defun temp-min (colmena) (car (cadr colmena)))
-(defun temp-max (colmena) (cadr (cadr colmena)))
-(defun temp-actual (colmena) (caddr colmena))
-(defun peso-actual (colmena) (cadddr colmena))
-(defun cantidad-abejas (colmena) (car (cddddr colmena)))
+; Estructura de cada colmena: (ID_COLMENA (TEMP_MIN TEMP_MAX) TEMP_ACTUAL PESO_ACTUAL CANTIDAD_ABEJAS)
+;   ID_COLMENA       -> (car colmena)
+;   TEMP_MIN         -> (car (cadr colmena))  = (caadr  colmena)
+;   TEMP_MAX         -> (cadr (cadr colmena)) = (cadadr colmena)
+;   TEMP_ACTUAL      -> (caddr colmena)
+;   PESO_ACTUAL      -> (cadddr colmena)
+;   CANTIDAD_ABEJAS  -> (car (cddddr colmena))   ; no hay combo de 5 letras, se deja asi
 
 ; =============================================================================
 ; PUNTO 1 - produccion-miel
 ; =============================================================================
 (defun produccion-miel (colmena)
-    (* (/ (cantidad-abejas colmena) 1000) 0.5)
+    (* (/ (car (cddddr colmena)) 1000) 0.5)
 )
 
 ; =============================================================================
 ; PUNTO 2 - temp-en-rango-p
 ; =============================================================================
 (defun temp-en-rango-p (colmena)
-    (and (numberp (temp-actual colmena))
-         (>= (temp-actual colmena) (temp-min colmena))
-         (<= (temp-actual colmena) (temp-max colmena)))
+    (and (numberp (caddr colmena))
+         (>= (caddr colmena) (caadr colmena))
+         (<= (caddr colmena) (cadadr colmena)))
 )
 
 ; =============================================================================
@@ -30,9 +30,9 @@
 ; =============================================================================
 (defun estado-colmena (colmena)
     (cond
-        ((temp-en-rango-p colmena) (list (id colmena) 'NORMAL))
-        ((< (temp-actual colmena) (temp-min colmena)) (list (id colmena) 'RIESGO_FRIO))
-        (T (list (id colmena) 'RIESGO_CALOR))
+        ((temp-en-rango-p colmena) (list (car colmena) 'NORMAL))
+        ((< (caddr colmena) (caadr colmena)) (list (car colmena) 'RIESGO_FRIO))
+        (T (list (car colmena) 'RIESGO_CALOR))
     )
 )
 

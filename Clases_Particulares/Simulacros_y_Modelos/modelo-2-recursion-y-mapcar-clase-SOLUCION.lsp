@@ -9,13 +9,15 @@
 ;                  o cuando la lista resultante CAMBIA DE LONGITUD (filtrar),
 ;                  o cuando hay que COMPARAR/ACUMULAR entre elementos.
 
-; --- Accesores (hacen el resto del codigo legible y evitan car/cadr/caddr sueltos) ---
-(defun costo (rep) (car rep))
-(defun tiempo (rep) (cadr rep))
-(defun repuestos (rep) (caddr rep))
-
-; El costo por hora se usa en varios puntos: conviene definirlo una sola vez
-(defun costo-hora (rep) (/ (costo rep) (tiempo rep)))
+; Estructura de cada reparacion: (COSTO TIEMPO REPUESTOS)
+;   COSTO      -> (car rep)
+;   TIEMPO     -> (cadr rep)
+;   REPUESTOS  -> (caddr rep)
+;   COSTO-HORA -> (/ (car rep) (cadr rep))
+; Cuando se accedia sobre (car lista), el car/cdr se combina un nivel mas adentro:
+;   (tiempo (car lista))     = (cadar  lista)
+;   (costo  (car lista))     = (caar   lista)
+;   (repuestos (car lista))  = (caddar lista)
 
 ; =============================================================================
 ; a) RECURSION -> devuelve un valor unico (T/NIL). Predicado UNIVERSAL:
@@ -24,7 +26,7 @@
 (defun todas-tiempo-ok-p (lista limite)
     (cond
         ((null lista) T)
-        ((> (tiempo (car lista)) limite) NIL)
+        ((> (cadar lista) limite) NIL)
         (T (todas-tiempo-ok-p (cdr lista) limite))
     )
 )
@@ -35,7 +37,7 @@
 (defun contar-caras (lista valor)
     (cond
         ((null lista) 0)
-        ((> (costo (car lista)) valor) (+ 1 (contar-caras (cdr lista) valor)))
+        ((> (caar lista) valor) (+ 1 (contar-caras (cdr lista) valor)))
         (T (contar-caras (cdr lista) valor))
     )
 )
@@ -54,7 +56,7 @@
 ; d) MAPCAR -> misma longitud, cada elemento sale de su propia sublista.
 ; =============================================================================
 (defun repuestos-usados (lista)
-    (mapcar 'repuestos lista)
+    (mapcar (lambda (rep) (caddr rep)) lista)
 )
 
 ; =============================================================================
@@ -64,7 +66,7 @@
 (defun caras (lista)
     (cond
         ((null lista) NIL)
-        ((> (costo (car lista)) 50000) (cons (car lista) (caras (cdr lista))))
+        ((> (caar lista) 50000) (cons (car lista) (caras (cdr lista))))
         (T (caras (cdr lista)))
     )
 )
@@ -75,7 +77,7 @@
 ; =============================================================================
 (defun categorizar (lista)
     (mapcar (lambda (rep)
-                (let ((ch (costo-hora rep)))
+                (let ((ch (/ (car rep) (cadr rep))))
                     (cond
                         ((<= ch 10000) "eficiente")
                         ((<= ch 25000) "aceptable")
@@ -96,10 +98,10 @@
 (defun resumen-con-repuestos (lista)
     (cond
         ((null lista) (list 0 0))
-        ((< (repuestos (car lista)) 1) (resumen-con-repuestos (cdr lista)))
+        ((< (caddar lista) 1) (resumen-con-repuestos (cdr lista)))
         (T (let ((resto (resumen-con-repuestos (cdr lista))))
-                (list (+ (costo (car lista)) (car resto))
-                      (+ (tiempo (car lista)) (cadr resto)))))
+                (list (+ (caar lista) (car resto))
+                      (+ (cadar lista) (cadr resto)))))
     )
 )
 
@@ -115,13 +117,13 @@
 (defun ajustar-reparaciones (lista recargo)
     (mapcar (lambda (rep)
                 (let ((costo-final (cond
-                                       ((> (repuestos rep) 2)
-                                        (+ (costo rep) (* (costo rep) (/ recargo 100))))
-                                       (T (costo rep)))))
+                                       ((> (caddr rep) 2)
+                                        (+ (car rep) (* (car rep) (/ recargo 100))))
+                                       (T (car rep)))))
                     (list costo-final
-                          (repuestos rep)
+                          (caddr rep)
                           (cond
-                              ((> (/ costo-final (tiempo rep)) 25000) 'REVISAR)
+                              ((> (/ costo-final (cadr rep)) 25000) 'REVISAR)
                               (T 'OK)))))
             lista)
 )
