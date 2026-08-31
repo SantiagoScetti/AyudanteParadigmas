@@ -1,6 +1,6 @@
 # Índice — Simulacros y Modelos
 
-Tres niveles de práctica, cada uno con una versión para resolver todos juntos en clase y otra para llevar de tarea (mismo formato y dificultad, distinto enunciado). Todos incluyen su `-SOLUCION.lsp`.
+Cinco niveles de práctica de dificultad creciente. Los niveles 1 y 2 tienen una versión para resolver todos juntos en clase y otra para llevar de tarea (mismo formato y dificultad, distinto enunciado). Todos incluyen su `-SOLUCION.lsp`.
 
 ## Nivel 1 — Básico (TP1 a TP3)
 Sin recursividad ni MAPCAR. Estilo "primer parcial" viejo: expresiones matemáticas a Lisp, análisis de una función con `cond`, y un problema real con predicado + armado de lista + cálculo por tramos.
@@ -19,6 +19,10 @@ Formato combinado actual: predicado, clasificador con `cond`, MAPCAR, recursivid
 ## Nivel 4 — Integrador con dos listas en paralelo
 Mismo formato que el Nivel 3, pero el sistema maneja **dos listas de igual longitud** que hay que recorrer a la par (posición 1 con posición 1). Los primeros 3 puntos trabajan sobre un registro suelto (TP1 a TP3) y los 4 siguientes sobre las listas, **sin decir qué herramienta usar**: 2 salen con recursividad y 2 con MAPCAR.
 - [modelo-4-dos-listas-en-paralelo.md](modelo-4-dos-listas-en-paralelo.md) — Flota de camiones (viajes + choferes)
+
+## Nivel 5 — Dos listas en paralelo y un parámetro suelto
+Mismo formato que el Nivel 4, pensado para practicar el recorrido en paralelo **una segunda vez sin repetir el mismo ejercicio**. Cambian tres cosas respecto del Nivel 4: la sublista interna del registro tiene **3 elementos** (obliga a separar `(cadr (caddr x))` porque el atajo de 5 letras no existe), la segunda lista es **plana** (átomos sueltos: `(car lista)` ya es el dato, sin `car` de más), y viaja un **átomo suelto como parámetro** además de las dos listas — el patrón "lista + parámetro" que la cátedra tomó en el segundo parcial 2025.
+- [modelo-5-dos-listas-y-parametro.md](modelo-5-dos-listas-y-parametro.md) — Estación de servicio (turnos, mediciones de tanque, objetivo diario) · [PDF](modelo-5-dos-listas-y-parametro.pdf)
 
 ## Carpeta `anterior/`
 Los 3 simulacros que ya existían (Integradora 1, Final A, Final B) — todos estilo "todo junto" (equivalente al Nivel 3). Se archivaron ahí para no perder ese trabajo; si querés reciclar alguno como Nivel 3 adicional, están completos con su solución.
