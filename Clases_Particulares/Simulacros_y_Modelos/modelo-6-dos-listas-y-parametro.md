@@ -1,4 +1,4 @@
-# Modelo 5 — Integrador con dos listas en paralelo y un parámetro suelto
+# Modelo 6 — Integrador con dos listas en paralelo y un parámetro suelto
 **Programación Funcional — Lenguaje LISP**
 
 **Alcance:** integra todo — cálculo sobre un registro, predicado, clasificación con `cond`, MAPCAR, recursividad y función Menú con validación. Mantiene el formato del Modelo 4 (**dos listas que se recorren a la par**) y suma tres cosas que no aparecieron antes:

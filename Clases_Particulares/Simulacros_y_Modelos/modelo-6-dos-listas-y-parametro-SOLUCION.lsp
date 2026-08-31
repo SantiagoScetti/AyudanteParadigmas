@@ -1,4 +1,4 @@
-; MODELO 5 - DOS LISTAS EN PARALELO Y UN PARAMETRO SUELTO - SOLUCION DE REFERENCIA
+; MODELO 6 - DOS LISTAS EN PARALELO Y UN PARAMETRO SUELTO - SOLUCION DE REFERENCIA
 ; Estacion de servicio:  SURTIDOR = (ID_SURTIDOR TIPO (TURNO_1 TURNO_2 TURNO_3) PRECIO_LITRO)
 ;                        MEDICION = un numero suelto (lista PLANA, no de sublistas)
 ;                        OBJETIVO = un numero suelto que no viene de ninguna lista
