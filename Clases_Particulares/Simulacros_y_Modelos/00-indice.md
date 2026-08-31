@@ -1,6 +1,6 @@
 # Índice — Simulacros y Modelos
 
-Seis niveles de práctica de dificultad creciente. Los niveles 1 y 2 tienen una versión para resolver todos juntos en clase y otra para llevar de tarea (mismo formato y dificultad, distinto enunciado). Todos incluyen su `-SOLUCION.lsp`.
+Siete niveles de práctica de dificultad creciente. Los niveles 1 y 2 tienen una versión para resolver todos juntos en clase y otra para llevar de tarea (mismo formato y dificultad, distinto enunciado). Todos incluyen su `-SOLUCION.lsp`.
 
 ## Nivel 1 — Básico (TP1 a TP3)
 Sin recursividad ni MAPCAR. Estilo "primer parcial" viejo: expresiones matemáticas a Lisp, análisis de una función con `cond`, y un problema real con predicado + armado de lista + cálculo por tramos.
@@ -27,6 +27,10 @@ El más **liviano de estructura de datos** de toda la carpeta: **no hay registro
 ## Nivel 6 — Dos listas en paralelo y un parámetro suelto
 El más completo. Mismo formato que el Nivel 4, con tres vueltas de tuerca: la sublista interna del registro tiene **3 elementos** (obliga a separar `(cadr (caddr x))` porque el atajo de 5 letras no existe), la segunda lista es **plana** (átomos sueltos: `(car lista)` ya es el dato, sin `car` de más), y viaja un **átomo suelto como parámetro** además de las dos listas — el patrón "lista + parámetro" que la cátedra tomó en el segundo parcial 2025.
 - [modelo-6-dos-listas-y-parametro.md](modelo-6-dos-listas-y-parametro.md) — Estación de servicio (turnos, mediciones de tanque, objetivo diario) · [PDF](modelo-6-dos-listas-y-parametro.pdf)
+
+## Nivel 7 — Validación estructural, transformación y promedio
+**Una sola lista** de sublistas de 3 elementos, con el formato exacto de los segundos parciales reales (2025 *ondas* y *proyectos*, 2023 *prendas*). Cubre los cuatro patrones que la cátedra toma y que **no aparecen en ninguno de los niveles anteriores**: el **predicado que valida la estructura** ("¿todos son sublistas de 3 elementos?", que apareció en 2 de los 3 temas de 2025), **reemplazar un campo adentro de la sublista** conservando el resto (también en 2 de los 3 temas de 2025), el **promedio con condición** (2° parcial 2023, 2,5 pts) y **encadenar** un punto con la lista que devolvió otro. Un punto exige soportar **datos sucios**, y el menú reutiliza el predicado del punto 1 como validación.
+- [modelo-7-validacion-transformacion-y-promedio.md](modelo-7-validacion-transformacion-y-promedio.md) — Hemocentro (donante, volumen, estado) · [PDF](modelo-7-validacion-transformacion-y-promedio.pdf)
 
 ## Carpeta `anterior/`
 Los 3 simulacros que ya existían (Integradora 1, Final A, Final B) — todos estilo "todo junto" (equivalente al Nivel 3). Se archivaron ahí para no perder ese trabajo; si querés reciclar alguno como Nivel 3 adicional, están completos con su solución.
