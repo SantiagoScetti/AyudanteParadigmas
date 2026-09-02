@@ -32,5 +32,9 @@ El más completo. Mismo formato que el Nivel 4, con tres vueltas de tuerca: la s
 **Una sola lista** de sublistas de 3 elementos, con el formato exacto de los segundos parciales reales (2025 *ondas* y *proyectos*, 2023 *prendas*). Cubre los cuatro patrones que la cátedra toma y que **no aparecen en ninguno de los niveles anteriores**: el **predicado que valida la estructura** ("¿todos son sublistas de 3 elementos?", que apareció en 2 de los 3 temas de 2025), **reemplazar un campo adentro de la sublista** conservando el resto (también en 2 de los 3 temas de 2025), el **promedio con condición** (2° parcial 2023, 2,5 pts) y **encadenar** un punto con la lista que devolvió otro. Un punto exige soportar **datos sucios**, y el menú reutiliza el predicado del punto 1 como validación.
 - [modelo-7-validacion-transformacion-y-promedio.md](modelo-7-validacion-transformacion-y-promedio.md) — Hemocentro (donante, volumen, estado) · [PDF](modelo-7-validacion-transformacion-y-promedio.pdf)
 
+## Extra — Repaso rápido y distendido
+No es un nivel más: es el **más fácil de todos**, pensado para una clase liviana o para arrancar una jornada larga sin que se les caiga el ánimo. Sublistas de **2 elementos** y números enteros redondos, con los cinco moldes básicos (predicado, clasificador con `cond`, MAPCAR, recursión que suma y recursión que filtra) en un solo enunciado. El formato `(NOMBRE VALOR)` es el mismo del segundo parcial 2023 (prendas y precios), así que atrás del chiste practican una estructura real.
+- [modelo-extra-aura-brainrot.md](modelo-extra-aura-brainrot.md) — AuraTracker 9000 (ranking de aura de personajes de memes) · [PDF](modelo-extra-aura-brainrot.pdf)
+
 ## Carpeta `anterior/`
 Los 3 simulacros que ya existían (Integradora 1, Final A, Final B) — todos estilo "todo junto" (equivalente al Nivel 3). Se archivaron ahí para no perder ese trabajo; si querés reciclar alguno como Nivel 3 adicional, están completos con su solución.
