@@ -1,0 +1,248 @@
+
+
+Definir las siguientes funciones.Cada uno recibe como parametro una lista de tres elemento
+con el siguiente (ID_PROOPIEDADAMBIENTE VALOR_ALQUILER)
+Cada uno de las funciones debe retornar el atomo correspondiente  del registro. Usar car/cdr
+o conmbinaciones anidadas,evitar uso de  funciones auxiliares.
+
+- Obtener-id --> retorna ID_PROOPIEDAD
+- Obtener-ambiente--> retorna AMBIENTE
+-Obtener-alquiler --> retorna VALOR_ALQUILER
+
+(ID_PROOPIEDAD AMBIENTE VALOR_ALQUILER)
+	car          cadr       caddr
+
+Punto 1
+
+(defun devolver-Propiedad(lista)
+	(if(and(listp lista) (= (length lista)3))(car lista)
+			nil)
+
+	);defun
+
+Resolucion
+
+DEVOLVER-PROPIEDAD
+
+Break 1 [3]> (devolver-Propiedad'(prop300 3 5000))
+
+PROP300
+
+
+========================================================================================================
+P 1
+
+(defun devolver-Ambiente(lista)
+ (if(and(listp lista ) (= (length lista) 3))(cadr lista)
+ 	        nil)
+	),defun
+
+Resolucion
+
+DEVOLVER-AMBIENTE
+Break 2 [4]> (devolver-Ambiente'(prop101 2 4500))
+
+2
+Break 2 [4]> 
+
+
+===========================================================================================================
+P 1
+ (defun devolver-Valor(lista)
+ 		(if(and(listp lista) (= (length lista) 3))(caddr lista)
+ 				nil)
+ 	);defun 
+
+ Resolucion
+
+DEVOLVER-VALOR
+
+Break 1 [3]> (devolver-Valor'(prop101 2 4500))
+
+4500
+
+Break 1 [3]> 
+=============================================================================================================
+
+ Punto 2 PREDICADO
+
+ Definir una funcion predicado que recibe 3 parametros,el primero es la lista
+ (ID_PROOPIEDAD AMBIENTE VALOR_ALQUILER),el segundo un atomo que indica la cantidad de ammbiente
+ que esta buscando el importe ambiente en $ y el importe...
+ Considerando que las funciones anteriores solamente reciben una lista de sub lista con 
+ la estructura anterior 
+ (ID_PROOPIEDAD AMBIENTE VALOR_ALQUILER) (ID_PROOPIEDAD AMBIENTE VALOR_ALQUILER)
+
+ (defun Predicado(lista)
+ 	(if(and(listp lista)
+	 	(=(length lista) 3)
+	 	(>(cadr lista) 0)
+	 	(>(caddr lista) 28000)))
+	 	(t nil)
+	  );defun
+
+
+ RESOLUCION
+ PREDICADO
+Break 2 [4]> (predicado'(2 20000))
+
+NIL
+Break 2 [4]> (predicado'(5 80000))
+
+NIL
+Break 2 [4]> (predicado'(2 15000))
+pP
+NIL
+Break 2 [4]> (predicado'(PROP101 2 35000))
+
+T
+========================================================================================================
+
+P 3
+
+Definir las siguientes funciones,las cuales recibe como parametro la lista de registro y deben.
+Utilizar las funciones definida en el punto anterior. 
+
+-Contar-alquiler-accesible Retorna la cantidad de registro (Propiedades)cuyo valor de alquiler sea 
+menor o igual a $ 150.0000 mediante proceso recursivo.
+
+-existe-alquiler-exclusivo definir una funcion predicado que determine si existe al menos un 
+registro cuyo alquilersea mayor a $ 400.000
+
+(defun contar-Alquiler-accesible(lista)
+	(cond
+	((endp lista )0)
+	((not(listp lista ))nil)
+	((<(CADDAR  lista)15000)
+	(+ 1(devolver-Propiedad(cdr ID_PROOPIEDAD )
+		(cdr ID_PROOPIEDAD))))
+	(t(contar-Alquiler-accesible(cdr ID_PROOPIEDAD)
+		(cdr lista)))
+		)
+
+
+	)
+
+CONTAR-ALQUILERES-ACCESIBLES
+Break 2 [4]> (contar-alquileres-accesibles'((prop101 2 12000) (prop102 1 5000) (propiedad103 4 140000)))
+
+3
+Break 2 [4]> 
+
+==========================================================================================================
+
+PUNTO 3
+
+
+;; No olvidar llamar a la funcion auxiliar 
+
+(defun devolver-Valor(car lista)
+	(cddr lista))
+
+(defun existe-alquiler-exclusivo(lista)
+		(cond
+		((endp lista )nil)
+	    ((>(devolver-Valor(car lista))400000)T)
+	    (t(existe-alquiler-exclusivo(cdr lista))
+
+	);cond
+
+);defun
+
+
+
+EXISTE-ALQUILER-EXCLUSIVO
+
+Break 1 [3]> (existe-alquiler-exclusivo '((prop101 2 200000) (prop102 3 300000)))
+
+Tr
+Break 1 [3]> 
+
+
+======================================================================================================|
+Punto 4
+
+
+Definir las sisguientes funciones.Cada una recibe como paramentro la base de datos(lista de registros)
+y un paramentro adicional,segun corresponda.
+
+-Filtar-por-ambiente debe retornar una lista que contenga unicamente los ID_PROOPIEDAD de aquellos 
+imnuebles cuya cantidad de ambientes coincida exactamente con el numero entero recibido como parametro
+para este caso el numero de ambientes.
+-filtrar-propiedades-economicas debe retornar una nueva lista compuesta con las sublistas de aquellas 
+propiedades cuyo valor de alquiler sea menor qu eel monto indicado como paramaetro.
+
+(defun filtrar-por-ambiente (lista)
+	(cond
+	((endp lista)nil)
+	((= (devolver-Ambiente (car lista)))
+		(cons (caar lista) (filtrar-por-ambiente (cdr lista))))
+			(t (filtrar-por-ambiente (cdr lista)))
+			);cond
+	);defun
+
+----------
+Resolucion
+----------
+
+(defun devolver-Ambiente(lista) (cadr lista));use la funcion anterior
+
+
+DEVOLVER-AMBIENTE
+
+Break 1 [3]> (defun filtrar-por-ambiente (lista)
+	(cond
+	((endp lista)nil)
+	((= (devolver-Ambiente (car lista)))
+		(cons (caar lista) (filtrar-por-ambiente (cdr lista) )))
+			(t (filtrar-por-ambiente (cdr lista)))))
+
+FILTRAR-POR-AMBIENTE
+
+Break 1 [3]> (filtrar-por-ambiente '((prop102 2 45000) (prop102 3 5000) (prop103 4 600)) 2)
+
+(PROP102)
+Break 1 [3]> 
+
+
+====================================================================================================
+
+PUNTOO 5
+
+
+Definir una funcion llamada generar-informe, que genere un reporte transformando la lista
+completa mediante el usa de MAPCAR.
+Dbe retornar una lista de la forma.
+
+(ID_PROOPIEDAD CATEGORIA)
+(ID-PROPIEDAD CATEGORIA)
+
+Donde categoria será
+
+'PREMIUM VALOR MAYOR O IGUAL A $ 250.000 / 'ESTANDAR VALOR ES MENOR A $ 250.000
+
+
+(defun generar-informe (lista)
+  (mapcar 
+  	(lambda (x)
+            (if (> (caddr x) 400000)
+                (list (car x) 'PREMIUM)
+                (list (car x) 'ESTANDAR)))
+          lista)
+          );defun
+
+RESOLUCION
+
+GENERAR-INFORME
+Break 1 [3]> (GENERAR-INFORME '((prop102 2 450000) (prop102 3 50000) (prop103 4 60000)))
+
+((PROP102 PREMIUM) (PROP102 ESTANDAR) (PROP103 ESTANDAR))
+Break 1 [3]> 
+
+
+
+
+
+
+
+

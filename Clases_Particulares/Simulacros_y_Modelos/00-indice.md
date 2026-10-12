@@ -36,5 +36,9 @@ El más completo. Mismo formato que el Nivel 4, con tres vueltas de tuerca: la s
 No es un nivel más: es el **más fácil de todos**, pensado para una clase liviana o para arrancar una jornada larga sin que se les caiga el ánimo. Sublistas de **2 elementos** y números enteros redondos, con los cinco moldes básicos (predicado, clasificador con `cond`, MAPCAR, recursión que suma y recursión que filtra) en un solo enunciado. El formato `(NOMBRE VALOR)` es el mismo del segundo parcial 2023 (prendas y precios), así que atrás del chiste practican una estructura real.
 - [modelo-extra-aura-brainrot.md](modelo-extra-aura-brainrot.md) — AuraTracker 9000 (ranking de aura de personajes de memes) · [PDF](modelo-extra-aura-brainrot.pdf)
 
+## Práctica puntual — Reutilizar funciones
+No es un modelo de parcial: es una práctica corta para una dificultad específica, la de **no reutilizar lo que ya se definió** (reescribir `cadr` en vez de llamar al accesor, o redefinir una función que ya existía). Los tres accesores vienen regalados y la consigna **prohíbe** volver a escribir `car`/`cdr`/`cadr`/`caddr` sobre un registro de ahí en adelante; los dos puntos del medio obligan a llamar a funciones que la propia alumna escribió antes. Incluye lista de control para autorrevisión y tres fragmentos de "encontrá el error" tomados de errores reales.
+- [practica-reutilizacion-de-funciones.md](practica-reutilizacion-de-funciones.md) — Verdulería (producto, stock, precio) · [PDF](practica-reutilizacion-de-funciones.pdf)
+
 ## Carpeta `anterior/`
 Los 3 simulacros que ya existían (Integradora 1, Final A, Final B) — todos estilo "todo junto" (equivalente al Nivel 3). Se archivaron ahí para no perder ese trabajo; si querés reciclar alguno como Nivel 3 adicional, están completos con su solución.
