@@ -1,6 +1,6 @@
 ```
 1. "Esta programación se basa en un subconjunto de calculo de predicados, incluyendo instrucciones escritas en forma conocidas como clausuras de Horm (sentencias de logica de primer orden)".
-[label](Readme.md)Definición de:
+Definición de:
   a. Paradigma imperativo. ❌
   b. Paradigma procedimental. ❌
   c. Paradigma funcional. ❌
