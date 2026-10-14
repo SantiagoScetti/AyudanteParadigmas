@@ -1,6 +1,12 @@
 # Índice — Simulacros y Modelos
 
-Seis niveles de práctica de dificultad creciente. Los niveles 1 y 2 tienen una versión para resolver todos juntos en clase y otra para llevar de tarea (mismo formato y dificultad, distinto enunciado). Todos incluyen su `-SOLUCION.lsp`.
+Seis niveles de práctica de dificultad creciente, precedidos por un Nivel 0 especial para alumnos que necesitan afianzar las bases. Los niveles 1 y 2 tienen una versión para resolver todos juntos en clase y otra para llevar de tarea (mismo formato y dificultad, distinto enunciado). Todos incluyen su `-SOLUCION.lsp`.
+
+## Nivel 0 — Cuaderno de Entrenamiento Didáctico (Alumnos con Dificultades / Recuperatorios)
+Material pedagógico intensivo y gradual, diseñado para alumnos que se traban frente a una hoja en blanco. Incluye V/F con justificación, predicción de retornos, completar código, caza de errores típicos de parciales, tabla de llamadas de recursión, pareo de consignas y un simulacro integrador completo de una Cafetería de Especialidad.
+- [Cuaderno para la Alumna (MD)](../Cuaderno_Entrenamiento_Didactico/Cuaderno_Entrenamiento_Alumna.md) · [PDF Imprimible](../Cuaderno_Entrenamiento_Didactico/Cuaderno_Entrenamiento_Alumna.pdf)
+- [Guía Docente y Solucionario (MD)](../Cuaderno_Entrenamiento_Didactico/Guia_Docente_Solucionario.md) · [PDF Docente](../Cuaderno_Entrenamiento_Didactico/Guia_Docente_Solucionario.pdf)
+- [Soluciones Verificadas en LISP](../Cuaderno_Entrenamiento_Didactico/soluciones_verificadas.lsp) (100% testeadas con SBCL)
 
 ## Nivel 1 — Básico (TP1 a TP3)
 Sin recursividad ni MAPCAR. Estilo "primer parcial" viejo: expresiones matemáticas a Lisp, análisis de una función con `cond`, y un problema real con predicado + armado de lista + cálculo por tramos.

@@ -205,3 +205,19 @@
     )
 )
 ; Prueba: (dividir-positivos '(16 (2 3) -2 40 S (D F)) 2)  -> ((16 8) (40 20))
+
+
+
+;juan martin
+
+Actividad Nº 6: Definir una función, la que a partir de una lista heterogénea ingresada como parámetro, 
+devuelva una nueva lista formada por las longitudes de aquellos elementos que sean sublistas.   
+
+(defun actividad6(lista)
+    (mapcar(lambda(l)
+        (if(consp l)
+            (length l)
+            nil
+        )
+    )lista)
+)
