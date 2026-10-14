@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapa conceptual · Paradigmas y Lenguajes</title>
+<style>
+:root{
+  --fondo:#f6f4ef; --panel:#fffdf8; --tinta:#1d1b18; --suave:#6a655c; --linea:#d9d3c6;
+  --u0:#2f6f8f; --u1:#8a5a1c; --u2:#3f7a4a; --u3:#7a4a78; --marca:#ffe38a;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --fondo:#16171a; --panel:#1e2024; --tinta:#ece9e2; --suave:#a09a8e; --linea:#34373d;
+    --u0:#6db3d6; --u1:#e0a957; --u2:#7cc58a; --u3:#c990c6; --marca:#6b5a12;
+  }
+}
+:root[data-theme="dark"]{
+  --fondo:#16171a; --panel:#1e2024; --tinta:#ece9e2; --suave:#a09a8e; --linea:#34373d;
+  --u0:#6db3d6; --u1:#e0a957; --u2:#7cc58a; --u3:#c990c6; --marca:#6b5a12;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);
+  font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;font-size:15px;line-height:1.45}
+header{padding:28px 16px 12px;max-width:1180px;margin:0 auto}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(24px,4vw,34px);margin:0 0 4px;font-weight:600;text-wrap:balance}
+header p{margin:0;color:var(--suave);max-width:70ch}
+.barra{position:sticky;top:0;z-index:5;background:var(--fondo);border-bottom:1px solid var(--linea)}
+.barra div{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=search]{flex:1 1 220px;min-width:0;padding:8px 12px;border:1px solid var(--linea);border-radius:8px;
+  background:var(--panel);color:var(--tinta);font:inherit}
+button{padding:8px 12px;border:1px solid var(--linea);border-radius:8px;background:var(--panel);color:var(--tinta);
+  font:inherit;cursor:pointer}
+button:hover{border-color:var(--suave)}
+button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--u0);outline-offset:2px}
+#cuenta{color:var(--suave);font-size:13px;min-width:9ch;font-variant-numeric:tabular-nums}
+main{max-width:1180px;margin:0 auto;padding:16px;display:grid;gap:16px;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));align-items:start}
+section.unidad{background:var(--panel);border:1px solid var(--linea);border-top:4px solid var(--c);
+  border-radius:10px;padding:14px 16px 12px;min-width:0}
+section.unidad h2{font-family:Georgia,"Times New Roman",serif;font-size:19px;margin:0;font-weight:600;color:var(--c)}
+section.unidad>.nota{margin:0 0 8px;color:var(--suave);font-size:13px}
+ul{list-style:none;margin:0;padding:0}
+ul ul{margin-left:9px;padding-left:14px;border-left:1.5px solid var(--linea)}
+li{margin:3px 0;position:relative}
+ul ul>li::before{content:"";position:absolute;left:-14px;top:13px;width:10px;border-top:1.5px solid var(--linea)}
+details>summary{cursor:pointer;list-style:none;display:flex;gap:6px;align-items:baseline;padding:2px 4px;border-radius:6px}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"+";flex:0 0 14px;font-family:Consolas,monospace;color:var(--c);font-weight:700}
+details[open]>summary::before{content:"\2212"}
+.hoja{display:flex;gap:6px;align-items:baseline;padding:2px 4px}
+.hoja::before{content:"\00b7";flex:0 0 14px;color:var(--c);font-weight:700;text-align:center}
+.t{font-weight:600}
+.n{color:var(--suave);font-size:13.5px}
+.fila{min-width:0;overflow-wrap:anywhere}
+mark{background:var(--marca);color:inherit;border-radius:3px;padding:0 1px}
+.oculto{display:none}
+footer{max-width:1180px;margin:0 auto;padding:4px 16px 32px;color:var(--suave);font-size:13px}
+@media print{.barra{display:none}body{background:#fff}section.unidad{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Mapa conceptual de la teoría</h1>
+  <p>Paradigmas y Lenguajes, ciclo 2026. Cada rama se despliega con un clic; el buscador resalta el concepto y abre el camino hasta él.</p>
+</header>
+<div class="barra"><div>
+  <input id="q" type="search" placeholder="Buscar un concepto: cons, Bernstein, léxico…" aria-label="Buscar un concepto">
+  <span id="cuenta" aria-live="polite"></span>
+  <button id="abrir" type="button">Desplegar todo</button>
+  <button id="cerrar" type="button">Plegar todo</button>
+</div></div>
+<main id="mapa"></main>
+<footer>Fuente: diapositivas 2026 de la cátedra y programa analítico (Res. 0480-23 CD). Los apuntes de cada unidad están en la carpeta apuntes.</footer>
+<script>
+const DATOS = {"t": "Paradigmas y Lenguajes", "n": "Teoría 2026 · UNNE", "c": [{"t": "Unidad I · Introducción", "n": "apunte 01", "c": [{"t": "Paradigma", "n": "marco de referencia: reglas, límites y qué es válido", "c": []}, {"t": "Paradigma de programación", "n": "forma de representar y manipular el conocimiento", "c": [{"t": "Imperativo", "n": "Algoritmos + Estructura de Datos = Programa · describe el cómo · C, Pascal", "c": [{"t": "Procedimental", "n": "descompone el problema en procedimientos o subrutinas", "c": []}, {"t": "Estructurado", "n": "teorema de Dijkstra: secuencia, condicional e iteración; sin GOTO", "c": []}, {"t": "Orientado a objetos", "n": "Objetos + Mensajes = Programa · estado, comportamiento e identidad · Smalltalk", "c": []}]}, {"t": "Declarativo", "n": "describe el qué; la solución la hallan mecanismos internos de inferencia", "c": [{"t": "Funcional", "n": "composición de funciones · cálculo lambda de Church · LISP, Haskell", "c": []}, {"t": "Lógico", "n": "cálculo de predicados · cláusulas de Horn · resolución · hechos, reglas y preguntas · Prolog", "c": []}, {"t": "Con restricciones", "n": "modelo = variables + restricciones", "c": []}]}, {"t": "Demostrativo", "n": "programación por ejemplos · modelo genético", "c": []}, {"t": "Reactivo", "n": "flujos de datos y eventos asíncronos · RxJS", "c": []}, {"t": "Basado en componentes", "n": "unidades reutilizables e independientes · React, Angular, Vue", "c": []}, {"t": "Concurrente y paralelo", "n": "varias tareas al mismo tiempo · ver Unidad III", "c": []}, {"t": "Otros estilos", "n": "", "c": [{"t": "Orientado a aspectos", "n": "obligaciones transversales tratadas como aspectos", "c": []}, {"t": "Dirigido por eventos", "n": "el programa espera eventos y ejecuta su manejador", "c": []}, {"t": "Por capas", "n": "separa la lógica de negocio de la presentación", "c": []}, {"t": "Multiparadigma", "n": "dos o más paradigmas en un programa · Lisp, Python", "c": []}]}]}, {"t": "Lenguaje de programación", "n": "sintaxis + reglas semánticas", "c": [{"t": "Clasificación", "n": "", "c": [{"t": "Nivel de abstracción", "n": "bajo nivel / alto nivel", "c": []}, {"t": "Propósito", "n": "general / dominio específico", "c": []}, {"t": "Tipado", "n": "estático (compilación) / dinámico (ejecución)", "c": []}, {"t": "Forma de ejecución", "n": "compilado, interpretado, híbrido", "c": []}]}, {"t": "Estrategias de ejecución", "n": "todas se basan en meta-programas", "c": [{"t": "Compilación", "n": "tiempo de compilación y de ejecución separados · eficiencia", "c": []}, {"t": "Interpretación", "n": "sin diferencia entre ambos tiempos · flexibilidad", "c": []}, {"t": "Máquina virtual", "n": "Java, Scala", "c": []}, {"t": "Enlazado de rutinas y librerías", "n": "", "c": []}, {"t": "Preprocesamiento", "n": "sustituye macros", "c": []}]}, {"t": "Generaciones", "n": "", "c": [{"t": "Primera", "n": "código binario, lenguaje de máquina", "c": []}, {"t": "Segunda", "n": "simbólicos o ensamblador", "c": []}, {"t": "Tercera", "n": "alto nivel, independientes de la máquina", "c": []}, {"t": "Cuarta", "n": "piezas prefabricadas · SQL, MATLAB", "c": []}, {"t": "Quinta", "n": "programación lógica, sistemas expertos, IA", "c": []}]}]}]}, {"t": "Unidad II · Programación funcional (LISP)", "n": "apuntes 02 a 05", "c": [{"t": "Fundamentos", "n": "", "c": [{"t": "Origen", "n": "John McCarthy, fines de los 50 · LISt Processing · funciones recursivas", "c": []}, {"t": "Homoiconicidad", "n": "programas y datos son listas · notación prefija", "c": []}, {"t": "Common Lisp", "n": "portabilidad, consistencia, expresividad, eficiencia, potencia, estabilidad", "c": []}, {"t": "Evaluación", "n": "la regla de oro de Lisp", "c": [{"t": "Lisp Listener", "n": "ciclo (PRINT (EVAL (READ)))", "c": []}, {"t": "Regla de evaluación", "n": "evalúa cada argumento y aplica la función", "c": []}, {"t": "QUOTE", "n": "evita la evaluación: pasa una lista como dato", "c": []}]}]}, {"t": "Tipos de datos", "n": "tipado dinámico", "c": [{"t": "Átomo", "n": "elemento indivisible: número, carácter, string, símbolo · T y NIL", "c": []}, {"t": "CONS", "n": "estructura con dos componentes: CAR y CDR", "c": [{"t": "Lista", "n": "cadena de CONS enlazados por el CDR y terminada en NIL", "c": []}, {"t": "Lista punteada", "n": "el CDR apunta a un átomo · ahorra una casilla", "c": []}]}]}, {"t": "Funciones primitivas", "n": "", "c": [{"t": "Aritméticas", "n": "+ - * / · no modifican sus argumentos · aceptan listas en el intérprete de la cátedra", "c": []}, {"t": "Predicados", "n": "funciones que devuelven T o NIL", "c": [{"t": "Numéricos", "n": "numberp, integerp, oddp, evenp, zerop", "c": []}, {"t": "De tipo", "n": "atom, consp, listp, null", "c": []}, {"t": "De igualdad", "n": "= · eq (puntero) · eql (representación) · equal (estructura) · equalp (valor)", "c": []}]}, {"t": "Listas", "n": "", "c": [{"t": "Selección", "n": "car, cdr, c****r, last, nth, elt", "c": []}, {"t": "Construcción", "n": "cons, list, append", "c": []}, {"t": "No destructivas", "n": "devuelven un valor nuevo: reverse, butlast, append", "c": []}, {"t": "Destructivas", "n": "modifican un parámetro: rplaca, rplacd, nconc, push, pop, incf, decf", "c": []}, {"t": "Búsqueda", "n": "member (compara con EQL), length", "c": []}]}, {"t": "Lógicos", "n": "and, or, not · evaluación en cortocircuito", "c": []}]}, {"t": "Variables y ámbito", "n": "", "c": [{"t": "Asignación", "n": "setq (variable) · setf (lugar)", "c": []}, {"t": "Variables locales", "n": "let (en paralelo) · let* (secuencial)", "c": []}, {"t": "Ámbito léxico", "n": "visibles solo dentro del texto donde se definen", "c": []}, {"t": "Ámbito dinámico", "n": "variables especiales: defvar, defparameter, defconstant", "c": []}]}, {"t": "Funciones", "n": "", "c": [{"t": "DEFUN", "n": "nombre + lambda-lista + cuerpo · devuelve la última forma", "c": []}, {"t": "LAMBDA", "n": "función sin nombre", "c": []}, {"t": "Ligadura de parámetros", "n": "locales; se desligan al terminar la función", "c": []}, {"t": "Recursividad", "n": "técnica, no estructura de datos · caso base + caso recursivo", "c": []}, {"t": "TRACE", "n": "muestra entradas y salidas sin cambiar el código", "c": []}]}, {"t": "Control", "n": "", "c": [{"t": "Secuencia", "n": "progn (última), prog1 (primera), prog2 (segunda)", "c": []}, {"t": "Condicionales", "n": "if, cond, when, unless, case, typecase", "c": []}, {"t": "Iteración", "n": "loop, do, dotimes, dolist", "c": []}, {"t": "Aplicación a listas", "n": "mapcar (sobre los CAR) · maplist (sobre los CDR)", "c": []}]}, {"t": "Entrada y salida", "n": "", "c": [{"t": "Entrada", "n": "read", "c": []}, {"t": "Salida", "n": "print, prin1, princ, pprint, terpri, format", "c": []}, {"t": "Streams", "n": "open, close, load · independencia del dispositivo", "c": []}, {"t": "Documentación", "n": "de uno a cuatro puntos y coma", "c": []}]}]}, {"t": "Unidad III · Programación concurrente y paralela", "n": "apuntes 06 y 07", "c": [{"t": "Conceptos", "n": "", "c": [{"t": "Programa secuencial", "n": "determinista · orden estricto · modelo de Von Neumann", "c": []}, {"t": "Concurrencia", "n": "técnicas para describir el paralelismo potencial y resolver comunicación y sincronización", "c": [{"t": "No determinismo", "n": "no se sabe qué ocurre en el instante siguiente", "c": []}]}, {"t": "Concurrencia vs. paralelismo", "n": "simultaneidad lógica vs. física · tareas vs. recursos", "c": []}, {"t": "Paralelo vs. distribuido", "n": "altas prestaciones en un lugar vs. múltiples computadoras heterogéneas", "c": []}, {"t": "Formas de ejecución", "n": "multiprogramación, multiprocesamiento, procesamiento distribuido", "c": []}, {"t": "Ventajas", "n": "modelo natural, comparte recursos, reduce tiempos, programas fiables", "c": []}]}, {"t": "Arquitecturas", "n": "", "c": [{"t": "Taxonomía de Flynn", "n": "según flujos de instrucciones y de datos", "c": [{"t": "SISD", "n": "secuencial", "c": []}, {"t": "SIMD", "n": "una instrucción, múltiples datos · vectorial", "c": []}, {"t": "MISD", "n": "no se construyó en la práctica", "c": []}, {"t": "MIMD", "n": "paralelismo funcional y de datos", "c": [{"t": "SPMD", "n": "mismo programa, datos distribuidos", "c": []}, {"t": "Memoria compartida", "n": "multiprocesadores · espacio de direcciones único · SMP · UMA y NUMA", "c": []}, {"t": "Memoria distribuida", "n": "multicomputadores · paso de mensajes · MPP", "c": []}]}]}]}, {"t": "Aplicación paralela deseada", "n": "alto rendimiento, eficiencia, escalabilidad, transparencia, portabilidad, tolerancia a fallos", "c": []}, {"t": "Diseño", "n": "", "c": [{"t": "Descomposición", "n": "funcional, geométrica, iterativa", "c": []}, {"t": "Metodología PCAM", "n": "partición, comunicación, aglomeración, mapping", "c": []}, {"t": "Mapeo de procesos", "n": "tensión entre concurrencia y localidad", "c": []}, {"t": "Scaling down", "n": "menos procesadores; factor N/P", "c": []}]}, {"t": "Especificación formal", "n": "", "c": [{"t": "Condiciones de Bernstein", "n": "L(Si)∩E(Sj)=Ø · E(Si)∩L(Sj)=Ø · E(Si)∩E(Sj)=Ø", "c": []}, {"t": "Grafo de precedencia", "n": "grafo dirigido acíclico; flecha A→B: B espera a A", "c": []}, {"t": "cobegin / coend", "n": "lo de adentro en cualquier orden; el resto secuencial", "c": []}]}]}, {"t": "Programa oficial, fuera de las diapositivas 2026", "n": "aparecen en el modelo de final o en el programa", "c": [{"t": "Lógica y Prolog", "n": "cláusulas de Horn, reglas de inferencia, árbol SLD · preguntas 1, 3 y 7 del modelo", "c": []}, {"t": "Cálculo lambda", "n": "redex, forma normal, confluencia · Tema 5 · pregunta 6 del modelo", "c": []}, {"t": "Mecanismos de sincronización", "n": "exclusión mutua, semáforos, monitores, deadlock · Tema 7", "c": []}, {"t": "Comunicación", "n": "sockets, cliente-servidor, MPI · Tema 8", "c": []}, {"t": "Conceptos avanzados", "n": "entidades y ligaduras, sistemas de tipos, polimorfismo · Tema 9", "c": []}]}]};
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function fila(n){
+  return '<span class="fila"><span class="t">' + esc(n.t) + '</span>' + (n.n ? ' <span class="n">' + esc(n.n) + '</span>' : '') + '</span>';
+}
+function rama(n, nivel){
+  if (!n.c.length) return '<li><div class="hoja">' + fila(n) + '</div></li>';
+  return '<li><details' + (nivel < 2 ? ' open' : '') + '><summary>' + fila(n) + '</summary><ul>' +
+         n.c.map(h => rama(h, nivel + 1)).join('') + '</ul></details></li>';
+}
+const mapa = document.getElementById('mapa');
+mapa.innerHTML = DATOS.c.map((u, i) =>
+  '<section class="unidad" style="--c:var(--u' + i + ')"><h2>' + esc(u.t) + '</h2><p class="nota">' + esc(u.n) +
+  '</p><ul>' + u.c.map(h => rama(h, 1)).join('') + '</ul></section>').join('');
+const original = new Map();
+mapa.querySelectorAll('.fila').forEach(f => original.set(f, f.innerHTML));
+const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+function buscar(){
+  const q = norm(document.getElementById('q').value.trim());
+  let hallados = 0;
+  mapa.querySelectorAll('.fila').forEach(f => { f.innerHTML = original.get(f); });
+  mapa.querySelectorAll('li').forEach(li => li.classList.remove('oculto'));
+  if (!q) { document.getElementById('cuenta').textContent = ''; return; }
+  mapa.querySelectorAll('li').forEach(li => {
+    const propio = li.querySelector(':scope > details > summary .fila, :scope > .hoja .fila');
+    if (!norm(li.textContent).includes(q)) { li.classList.add('oculto'); return; }
+    if (norm(propio.textContent).includes(q)) {
+      hallados++;
+      propio.querySelectorAll('.t,.n').forEach(el => {
+        const txt = el.textContent, i = norm(txt).indexOf(q);
+        if (i >= 0) el.innerHTML = esc(txt.slice(0, i)) + '<mark>' + esc(txt.slice(i, i + q.length)) + '</mark>' + esc(txt.slice(i + q.length));
+      });
+    }
+    const d = li.querySelector(':scope > details');
+    if (d) d.open = true;
+  });
+  document.getElementById('cuenta').textContent = hallados + (hallados === 1 ? ' resultado' : ' resultados');
+}
+document.getElementById('q').addEventListener('input', buscar);
+document.getElementById('abrir').addEventListener('click', () => mapa.querySelectorAll('details').forEach(d => d.open = true));
+document.getElementById('cerrar').addEventListener('click', () => mapa.querySelectorAll('details').forEach(d => d.open = false));
+</script>
+</body>
+</html>
